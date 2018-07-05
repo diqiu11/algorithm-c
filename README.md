@@ -1,1 +1,1 @@
-# java-web
+# training algrithm
