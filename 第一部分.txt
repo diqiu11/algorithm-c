@@ -115,4 +115,66 @@ P39 开灯问题
  21     }
  22     return 0;
  23 }
-
+P40 蛇形方阵
+1 #include <stdio.h>
+  2 #include <string.h>
+  3 #define maxn 10
+  4 int main()
+  5 {
+  6     int n,i,j,tot=0;
+  7     int a[maxn][maxn];
+  8     scanf("%d",&n);
+  9     memset(a,0,sizeof(a));
+ 10     tot = a[i=0][j=n-1] = 1;
+ 11     while(tot<n*n){
+ 12         while(i+1<n && !a[i+1][j]){
+ 13             a[++i][j]=++tot;
+ 14         }
+ 15         while(j-1>0 && !a[i][j-1]){
+ 16             a[i][--j]=++tot;
+ 17         }
+ 18         while(i-1>0 && !a[i-1][j]){
+ 19             a[--i][j]=++tot;
+ 20         }
+ 21         while(j+1<n && !a[i][j+1]){
+ 22             a[i][++j]=++tot;
+ 23         }
+ 24     }
+ 25     for(i=0;i<n;i++){
+ 26         for(j=0;j<n;j++){
+ 27             a[i][j]=j+1;
+ 28             printf("%3d",a[i][j]);
+ 29         }
+ 30         printf("\n");
+ 31     }
+ 32
+ 33     return 0;
+ 34 }
+ 35
+P41 竖式问题	//积累函数
+ #include <stdio.h>
+  2 #include <string.h>
+  3 int main()
+  4 {
+  5     int co=0;
+  6     char s[20],bu[99];
+  7
+  8     scanf("%s",s);
+  9     for(int abc=111;abc<=999;abc++){
+ 10         for(int de=11;de<=99;de++){
+ 11             int x=abc*(de%10), y=abc*(de/10), z=abc*de;
+ 12             sprintf(bu,"%d%d%d%d%d",abc,de,x,y,z);//输出到数组bu
+ 13             int al=1;
+ 14             for(int i = 0; i<strlen(bu);i++){//bu数组长度
+ 15                 if(strchr(s,bu[i])==NULL) al=0;
+ 16             }
+ 17             if(al){
+ 18                 printf("<%d>\n",++co);
+ 19                 printf("%5d\nX%4d\n.....\n%5d\n%4d\n.....\n%5d\n",abc,de,x,y,z);//%5d输出位数5位
+ 20             }
+ 21         }
+ 22     }
+ 23     printf("%d",co);
+ 24     return 0;
+ 25 }
+ 26
