@@ -178,3 +178,30 @@ P41 竖式问题	//积累函数
  24     return 0;
  25 }
  26
+ P46 TeX中的引号	熟练c中的函数
+ #include <stdio.h>
+  2 #include <string.h>
+  3 int main()
+  4 {
+  5     /*char s[99];
+  6     char c1="“",c2="”";
+  7     scanf("%s",s);
+  8     for(int i=0;i<=strlen(s);i++){
+  9         if(strcmp(s[i],c1)==0 || strcmp(s[i],c2)==0){
+ 10             strcpy(s[i],c1);
+ 11             strcpy(s[i],c2);
+ 12         }
+ 13     }
+ 14     printf("%s",s);*/
+ 15     int c,q = 1;
+ 16     while((c = getchar()) != EOF){
+ 17         if(c=='"'){
+ 18             printf("%s", q ? "“" : "”");
+ 19             q = !q;
+ 20         }else{
+ 21             printf("%c",c);
+ 22         }
+ 23     }
+ 24     return 0;
+ 25 }
+
