@@ -1,1 +1,1 @@
-# training algrithm
+# training
